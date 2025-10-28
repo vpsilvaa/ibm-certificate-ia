@@ -1,0 +1,94 @@
+
+Using MSE can result in a flat cost surface, leading to parameters getting stuck, which hinders the optimization process in logistic regression. 
+The sigmoid function provides a smooth cost surface, which helps in better convergence of the model parameters during optimization.
+Cross entropy loss aims to minimize the negative logarithm of the likelihood, which aligns with maximizing the likelihood of correct predictions.
+SGD is efficient because it updates model parameters by using small batches of the dataset, which speeds up the training process and helps avoid overfitting.
+The sigmoid function is used to convert the linear outputs of the model into probabilities, which are then used to classify the input data.
+The backward function calculates the gradients of the loss with respect to the model parameters, which are essential for updating the model during training.
+The optimizer's step function updates the model parameters based on the computed gradients, moving the model towards better performance.
+The Softmax function generalizes logistic regression, allowing classification into multiple classes rather than just two.
+The argmax function identifies the index of the maximum value in a sequence, which is critical in determining the class prediction in Softmax.
+The weight vectors in 2D Softmax represent the parameters that help classify the input samples based on their proximity to these vectors.
+The max function in Softmax classification returns the index corresponding to the largest value in z, which determines the predicted class.
+Cross Entropy Loss is used with the Softmax function in PyTorch for classification tasks, as it aligns with the probabilistic output of Softmax.
+The sigmoid function introduces non-linearity in a neural network by mapping input values to a range between 0 and 1, which is crucial for modeling complex patterns.
+A two-layer neural network consists of one hidden layer, which introduces non-linearity, and one output layer, which produces the final prediction. 
+Adding more neurons to the hidden layer allows the neural network to model more complex functions, increasing its flexibility and improving its performance.
+The scaling problem is resolved by applying the sigmoid activation function, which adjusts the output to fit within the desired range.
+Overfitting occurs when a neural network has too many neurons in the hidden layer, causing it to model noise in the data rather than the underlying patterns.
+Underfitting occurs when a neural network is too simple to capture the underlying patterns in the data, often due to too few neurons in the hidden layer.
+In a multi-class classification problem, each class is represented by a neuron in the output layer, and the neuron with the highest output value is selected as the predicted class.
+Cross Entropy is commonly used in multi-class classification problems as it effectively measures the difference between the predicted probability distribution and the actual distribution.
+Backpropagation is used to efficiently calculate the gradient of the loss function with respect to the weights in the network, allowing for effective weight updates during training.
+The ReLU activation function partially addresses the vanishing gradient problem by having a constant gradient of 1 for positive inputs, which helps maintain gradient values during backpropagation.
+Adding more hidden layers allows the neural network to model more complex patterns, often increasing performance while reducing the risk of overfitting.
+H1 represents the number of neurons in the first hidden layer, which is a critical factor in determining the network's capacity to learn complex patterns. 
+Dropout helps prevent overfitting by randomly turning off neurons during training, forcing the network to generalize better.
+Randomly initializing weights ensures that neurons in the same layer do not produce the same output, which is crucial for learning diverse features.
+He initialization is commonly used with ReLU activation functions as it helps maintain proper gradients during backpropagation, reducing the vanishing gradient problem.
+Momentum helps gradient descent accelerate convergence and avoid being trapped in local minima by considering past gradients when updating weights.
+The momentum term (ρ) in gradient descent is analogous to the mass of a ball, influencing how much past gradients affect the current update.
+Batch normalization normalizes the output of each layer to reduce internal covariate shift, improving training stability and accelerating convergence.
+During batch normalization, the model learns scaling and shifting parameters that adjust the normalized outputs, giving the network additional flexibility during training.
+Convolution is used to detect local patterns, such as edges or textures, by applying a kernel over the input image.
+Max pooling reduces the spatial dimensions of the activation map, which helps in reducing the computational load and prevents overfitting.
+The ReLU (Rectified Linear Unit) activation function sets all negative input values to zero and passes positive values unchanged, introducing non-linearity.
+Activation functions are applied elementwise to every channel independently, ensuring non-linearity is introduced at every level of the network.
+Flattening is used to convert the 2D activation map into a 1D tensor, which can then be fed into fully connected layers for final classification.
+Output channels refer to the number of feature maps generated by applying different filters to the input data in a convolutional layer.
+Pre-trained models allow you to leverage the knowledge learned from large data sets, reducing the need for extensive training and improving performance on new tasks.
+Setting “requires_grad” to “False” ensures that the pre-trained weights are not modified during training, allowing the model to maintain the learned features.
+GPUs are designed for parallel processing, which greatly accelerates the computation of matrix operations, making them ideal for training large neural networks.
+WaveNet is specifically designed for generating natural-sounding speech and for text-to-speech synthesis. It excels in creating realistic audio conversations that sound natural.
+Transformers utilize self-attention mechanisms for efficient sequence processing.
+BERT utilizes an encoder-only transformer architecture. It is exceptional at understanding the context of a word within a sentence, which is crucial for nuanced tasks like sentiment analysis and question-answering. 
+BLEU is a metric primarily used for evaluating machine translation systems. It compares the generated translation with one or more reference translations and assigns a score based on the degree of overlap. BLEU measures the precision of the generated translation by counting the number of n-grams (contiguous sequences of n words) that appear in both the generated and reference translations. A higher BLEU score indicates a better translation quality
+When creating a skip-gram in PyTorch, the given code defines the embeddings layer using ‘nn.Embedding,’ which creates word embeddings for the given vocabulary size and embedding dimension.
+Sequence-to-sequence models within generative AI are used in machine translation, such as converting English phrases into French. Chatbots use sequence-to-sequence models to transform your queries into conversational responses, while summarization algorithms condense extensive texts into concise summaries. With code generation, you describe your task, and the AI generates the appropriate code.
+For the encoder, the interest lies only in the hidden state and to not use the output. This is because only the decoder will generate the output text. The encoder is only responsible for encoding the input sequence.
+RNNs are primarily built to handle sequential time-series data to maintain a hidden state that captures information from previous time steps. This enables them to model temporal dependencies and learn patterns across sequences.
+Perplexity is calculated as an exponent of the loss obtained from the model. For each sequence, perplexity is calculated from the average loss of all its tokens. 
+The decoder module generates the translation token once at a time, where each generated token goes back into the next RNN along with the hidden state to generate the next token of the output sequence until the end token is generated. 
+Multi-head attention operates by executing several scaled dot-product attention processes in parallel. This strategy allows each head to attend to distinct segments of the input sequence.
+w = argmax{hV^T} -> H is the output of the attention mechanism. By performing the matrix multiplication with V, you will find the resultant product on the similarities between H and every vector in V. However, applying the argmax will find the index of the most similar word.
+The self-attention mechanism helps NLP translate and summarize text, encode the contextual information from the surrounding words, and present it. It also allows the model to capture the input sequence’s dependencies and relationships among words.
+The attention mechanism compares the query vector with the transposed key matrix. The maximum dot product underlines the most relevant match, which then recovers the corresponding value from the value matrix.
+After instantiating the embedding layer, positional encoding embeds sequence order into word embeddings. This step is essential because transformers lack recurrence or convolution, so positional encoding gives the model order awareness.
+Generative pretraining, or GPT, is self-supervised and involves training a decoder to predict the subsequent token or word in a sequence given a set of words.
+Causal attention masking is used in a decoder to determine which tokens in a sequence are attended to by each token during generation.
+Transformer architecture is mostly used to develop decoder models, such as language generation in causal LM. It can model long-range dependencies and make them suitable for sequential tasks.
+In the transformer-based architecture, it generates an output sequence based on the encoded representation of the input sequence.
+A hallmark of encoder models like BERT is their bidirectional training method, which enables the model to understand the context from both sides of any given word in a sentence.
+To perform the NSP task, the BERT model is trained to determine whether a given sequence logically follows a preceding one. 
+To represent textual input data, BERT relies on three distinct types of embeddings: token embeddings, position embeddings, and segment embeddings.
+Adam has adaptive learning rates and momentum properties. This allows an efficient update of the model parameters during training.
+Masking is another vital component of the decoder’s mechanism. It ensures the model sequentially predicts each word, considering only the preceding tokens in the target sequence, which is essential for the autoregressive generation process.
+The output from the transformer passes through a linear layer. This layer is responsible for generating the output vectors or logits, which are the predictions returned by the model.
+LoRA retains the original model’s weights unchanged and introduces small trainable matrices to adapt the model efficiently.
+LoRA integrates efficiently by targeting key modules with minor trainable matrices, using PEFT to apply the configuration, and leveraging TrainingArguments to handle the training setup.
+Reparameterization-based methods, such as LoRA or low-rank adaptation, use reparametrizing network weights using low-rank transformations. This reduces the number of trainable parameters while still working with high-dimensional matrices like the pre-trained parameters of the network.
+
+RL:
+In large language models (LLMs), the prediction of the next token ‘t+1’ depends on the current token ‘t,’ allowing models to generate coherent and contextually appropriate responses. 
+The policy usually dictates the model to select specific output from this distribution, balancing between selecting the most appropriate output.
+In RLHF, the model maximizes the expected rewards by adjusting its actions according to human feedback. The positive human feedback helps the model to identify the most likely actions and update the policy to increase the positive likelihood of selecting those actions. 
+The KL penalty coefficient in policy gradient methods regulates divergence and maintains stability during the training. 
+In RLHF, the expected reward involves predicting future rewards based on the current state and action, weighted by their probabilities.
+The model generates negative responses when the sentiment score is set to zero.
+The repetition penalty penalizes repeated sequences of tokens to encourage diverse output and avoid repeated text generation.
+Upon inserting any query, the model generates possible responses with queries to continue with the process.
+RLHF fine-tunes language models using human feedback, allowing the model to generate responses more aligned with human preferences.
+The KL penalty coefficient regulates the divergence between old and new policies, maintaining stability during training. 
+The LengthSampler helps to vary the text lengths for data processing, enhances model robustness, and simulates realistic training conditions.
+DPO’s optimal solution involves modifying the reference model using reward values, with the Beta parameter being determined.
+DPO reformulates the problem to address these issues by leveraging a closed-form optimal policy as a function of the reward. 
+
+RAG:
+Faiss is a library developed by Facebook AI Research that offers efficient algorithms for searching through large collections of high-dimensional vectors by calculating the distance between the question embedding and the vector database of context vector embeddings.
+A context tokenizer not only splits text into tokens but also takes into account the surrounding context. It generates meaningful and accurate text representations as the context provides additional information.
+In the RAG process, the inserted prompts are encoded using token embedding and vector averaging. This helps capture the semantic meaning of the prompts and convert them into a vector representation that can be effectively used for retrieving relevant documents.
+In the RAG framework, the prompt is encoded, relevant vectors are retrieved based on similarity, and the final response is generated. 
+The large documents are chunked into small, manageable documents, then embedded into vectors, indexed into a vector database, and then used for retrieval and response generation.
+Retrieval helps retrieve relevant information from the knowledge base or database. This information is then used to augment the input, enabling the model to generate precise output. 
+The question encoder transfers user-provided prompts into difficult vector embeddings used for context matching.
+RAG allows chatbots to access secure, domain-specific data, such as medical guidelines, improving response accuracy without compromising data privacy.
